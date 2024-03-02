@@ -13,6 +13,13 @@
            if($query_login){
             $response['value'] = 1;
             $response['message'] = 'Yes, Login is successful';
+            $response['user_id'] = $cke_user_result['id_user'];
+            $response['name'] = $cke_user_result['name'];
+            $response['email'] = $cke_user_result['email'];
+            $response['phone'] = $cke_user_result['phone'];
+            $response['address'] = $cke_user_result['address'];
+            $response['created_at'] = $cke_user_result['created_at'];
+            $response['message'] = 'Yes, Login is successful';
             echo json_encode($response);
         }else{
             $response['value'] = 2;
