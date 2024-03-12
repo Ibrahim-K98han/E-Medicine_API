@@ -9,12 +9,12 @@
         $cek_cart = mysqli_query($connection, "SELECT * FROM cart WHERE id_cart = '$cartID'");
         $result = mysqli_fetch_array($cek_cart);
 
-        $qty = $result['qty'];
+        $qty = $result['quantity'];
 
         if($result){
-            if($tipe = "tambah"){
-                $update_tambh = mysqli_query($connection, "UPDATE cart set quantity = quantity + 1 WHERE id_cart = '$cartID'");
-                if($update_tambh){
+            if($tipe == "tambah"){
+                $update_tambah = mysqli_query($connection, "UPDATE cart set quantity = quantity + 1 WHERE id_cart = '$cartID'");
+                if($update_tambah){
                     $response['value'] = 1;
                     $response['message'] = "";
                     echo json_encode($response);
@@ -24,7 +24,7 @@
                     echo json_encode($response);
                 }
             }else{
-                if($qty = "1"){
+                if($qty == "1"){
                     $query_delete = mysqli_query($connection, "DELETE FROM cart WHERE id_cart = '$cartID'");
                     if($query_delete){
                         $response['value'] = 1;
@@ -36,8 +36,8 @@
                         echo json_encode($response);
                     }
                 }else{
-                    $update = mysqli_query($connection, "UPDATE cart set quantity = quantity - 1 WHERE id_cart = '$cartID'");
-                    if($update){
+                    $update_kurang = mysqli_query($connection, "UPDATE cart set quantity = quantity - 1 WHERE id_cart = '$cartID'");
+                    if($update_kurang){
                         $response['value'] = 1;
                         $response['message'] = "";
                         echo json_encode($response);
