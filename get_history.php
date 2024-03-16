@@ -12,7 +12,7 @@
         $key['id_user'] = $row_order['id_user'];
         $key['order_at'] = $row_order['order_at'];
         $key['status'] = $row_order['status'];
-        $key['details'] = array();
+        $key['detail'] = array();
 
         $query_select_order_detail = mysqli_query($connection, "SELECT order_details.*, product.name FROM order_details JOIN product on
         order_details.id_product = product.id_product WHERE order_details.invoice = '$noInvoice'");
